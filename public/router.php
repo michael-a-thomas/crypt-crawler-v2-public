@@ -52,7 +52,11 @@ try {
                 throw new RuntimeException('popen/pclose are required to start background crawl.');
             }
 
-            $cmd = 'start /B "" ' . escapeshellarg($phpBinary) . ' ' . escapeshellarg($worker);
+            if (PHP_OS_FAMILY === 'Windows') {
+                $cmd = 'start /B "" ' . escapeshellarg($phpBinary) . ' ' . escapeshellarg($worker);
+            } else {
+                $cmd = 'nohup ' . escapeshellarg($phpBinary) . ' ' . escapeshellarg($worker) . ' > /dev/null 2>&1 &';
+            }
             $handle = popen($cmd, 'r');
             if ($handle === false) {
                 throw new RuntimeException('Failed to launch background crawl process.');
