@@ -1,0 +1,48 @@
+{
+  "sources": [
+    {
+      "name": "Vinted",
+      "enabled": true,
+      "method": "php_curl",
+      "url_template": "https://www.vinted.com/catalog?search_text={query}&order=newest_first&page={page}",
+      "page_limit": 35,
+      "filters": {
+        "exclude_terms_all": ["toddler"],
+        "exclude_terms_jordan": ["shorts", "card", "autograph", "jersey"]
+      }
+    },
+    {
+      "name": "Depop",
+      "enabled": true,
+      "method": "browser_scroll",
+      "url_template": "https://www.depop.com/search/?q={query}&sort=newly_listed",
+      "max_scrolls": 55,
+      "filters": {
+        "exclude_terms_all": ["toddler"],
+        "exclude_terms_jordan": ["shorts", "card", "autograph", "jersey"]
+      }
+    },
+    {
+      "name": "Poshmark",
+      "enabled": true,
+      "method": "browser_scroll",
+      "url_template": "https://poshmark.com/search?query={query}&src=dir",
+      "max_scrolls": 55,
+      "filters": {
+        "exclude_terms_all": ["toddler"],
+        "exclude_terms_jordan": ["shorts", "card", "autograph", "jersey"]
+      }
+    },
+    {
+      "name": "Mercari",
+      "enabled": true,
+      "method": "browser_scroll",
+      "url_template": "https://www.mercari.com/search/?keyword={query}&sortBy=2",
+      "max_scrolls": 55,
+      "filters": {
+        "exclude_terms_all": ["toddler"],
+        "exclude_terms_jordan": ["shorts", "card", "autograph", "jersey"]
+      }
+    }
+  ]
+}

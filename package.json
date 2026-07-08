@@ -1,0 +1,14 @@
+{
+  "name": "crypt-crawler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local PHP + SQLite sneaker crawler with Puppeteer browser harvesting",
+  "scripts": {
+    "browser-harvester": "node tools/browser-harvester.js",
+    "browser-harvester:all": "node tools/browser-harvester.js --config=config/sources.json --scrolls=8 --wait=2000",
+    "crawl:browser:test": "node tools/browser-harvester.js --source=Depop --term=\"SB DUNK\" --url=\"https://www.depop.com/search/?q=SB%20DUNK&sort=newly_listed\" --scrolls=3 --wait=2000"
+  },
+  "dependencies": {
+    "puppeteer": "^24.14.0"
+  }
+}
